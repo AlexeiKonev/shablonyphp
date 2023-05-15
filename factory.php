@@ -38,6 +38,6 @@ class WorkerFactory{
 }
 
 $worker = WorkerFactory::make();//создаем экземпляр рабочего
-$worker->setName('Boris');//Задаем имя
+$worker->setName('Ivan');//Задаем имя
 var_dump($worker->getName());//
 
