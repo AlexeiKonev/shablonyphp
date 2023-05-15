@@ -1,0 +1,56 @@
+<?php
+final class Connection{
+
+    private static ?self $instance = null;
+
+    private static string $name;
+
+    /**
+     * @return string
+     */
+    public static function getName(): string
+    {
+        return self::$name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public static function setName(string $name): void
+    {
+        self::$name = $name;
+    }
+
+
+
+    public static function getInstance():self
+    {
+        if(self::$instance == null){
+            self::$instance  = new self();
+        }
+        return self::$instance;
+    }
+    public function __clone(): void
+    {
+        // TODO: Implement __clone() method.
+    }
+    public function __wakeup(): void
+    {
+        // TODO: Implement __wakeup() method.
+    }
+}
+//создаем синглтон экземляр
+$connection = Connection::getInstance();
+//задаем имя
+$connection->setName('Laravel');
+//создаем второй экземпляр
+$connection2 = Connection::getInstance();
+//выводим значения второго экземляра
+var_dump($connection2->getName());//выводит Laravel
+
+//тест снипета for
+for($x = 0;$x<10;$x++)
+{
+echo $x;
+}
+
